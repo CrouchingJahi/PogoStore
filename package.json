@@ -1,0 +1,70 @@
+{
+  "name": "pogostore",
+  "version": "0.1.0",
+  "description": "A web app for keeping track of Pokemon from Pokemon Go and automatically calculating their stats",
+  "author": "Jahi Crouch",
+  "private": true,
+  "scripts": {
+    "watchify": "watchify -vd -p browserify-hmr -e src/index.js -o dist/pogostore.js",
+    "serve": "http-server -o -c 1 -a localhost",
+    "dev": "npm-run-all --parallel watchify serve",
+    "lint": "eslint --ext .js,.vue src test",
+    "test": "jest",
+    "build": "cross-env NODE_ENV=production browserify -g envify -p [ vueify/plugins/extract-css -o dist/pogostore.css ] -e src/index.js | uglifyjs -c warnings=false -m > dist/pogostore.js"
+  },
+  "dependencies": {
+    "firebase": "~3.7.3",
+    "vue": "~2.2.5",
+    "vue-router": "~2.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-plugin-transform-runtime": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "babel-preset-stage-2": "^6.0.0",
+    "babel-runtime": "^6.0.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.1.0",
+    "browserify-hmr": "^0.3.1",
+    "cross-env": "^2.0.0",
+    "envify": "^3.4.1",
+    "eslint": "^3.3.0",
+    "eslint-config-standard": "^5.3.5",
+    "eslint-plugin-html": "^1.5.2",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "http-server": "^0.9.0",
+    "jest": "~19.0.2",
+    "npm-run-all": "^2.3.0",
+    "phantomjs-prebuilt": "^2.1.3",
+    "proxyquireify": "^3.0.1",
+    "uglify-js": "^2.5.0",
+    "vueify": "^9.0.0",
+    "watchify": "^3.4.0"
+  },
+  "babel": {
+    "presets": ["es2015", "stage-2"]
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "vueify"
+    ]
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/vue"
+    ],
+    "moduleFileExtensions": ["js", "vue"],
+    "scriptPreprocessor": "index.js"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "plugins": [
+      "html"
+    ],
+    "env": {
+      "jest": true
+    }
+  }
+}
