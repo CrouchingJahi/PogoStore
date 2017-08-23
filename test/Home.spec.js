@@ -1,15 +1,9 @@
-import Vue from 'vue'
-// import Hello from '../../src/components/Hello.vue'
+import { mount } from 'avoriaz'
+import Home from '../src/page/Home.vue'
 
 describe('Home.vue', () => {
-  xit('should render correct contents', () => {
-    const vm = new Vue({
-      el: document.createElement('div'),
-      render: (h) => h(Hello)
-    })
-    expect(vm.$el.querySelector('h1').textContent).toBe('Welcome to Your Vue.js App')
+  const component = mount(Home)
+  it('should render its container div', () => {
+    expect(component.is('div')).toBe(true)
   })
 })
-
-// also see example testing a component with mocks at
-// https://github.com/vuejs/vueify-example/blob/master/test/unit/a.spec.js#L22-L43

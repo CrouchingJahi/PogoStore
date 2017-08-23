@@ -1,0 +1,50 @@
+:root {
+  --black: #080B0A;
+  --gray: #919191;
+  --gray-light: #D6E2E2;
+  --white: #FAFAFA;
+  --yellow: #FBD208;
+  --yellow-dark: #A2902C;
+  --yellow-gold: #E5B705;
+  --yellow-mid: #D9C208;
+  --yellow-light: #F4E8A1;
+
+  --primary-color: var(--yellow-mid);
+  --secondary-color: var(--gray);
+  --link-color: var(--yellow-dark);
+  --error-color: var(--yellow-dark);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--white);
+}
+
+h1 {
+  margin: 0.5em 0;
+  display: inline;
+  font-family: 'Avengeance';
+}
+
+input {
+  height: 1.5em;
+  padding: 0.25em;
+  border: solid 1px var(--gray);
+}
+
+button {
+  background-color: var(--gray);
+  color: var(--white);
+  border: 1px solid var(--gray);
+  padding: 0.5em 1em;
+  font-weight: bold;
+}
+
+.error {
+  margin-top: 0;
+  color: var(--error-color);
+}
+input.error {
+  border-color: var(--error-color);
+}
